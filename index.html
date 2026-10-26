@@ -1,0 +1,140 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Voting System</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eeeeff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .box {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            border: none;
+        }
+
+        .candidate {
+            padding: 12px;
+            margin: 10px 0;
+            background: #f0f0ff;
+            border-radius: 8px;
+        }
+
+        #message {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>🗳️ Online Voting</h1>
+
+    <input id="name" placeholder="Enter your name">
+
+    <select id="candidate">
+        <option value="">Select Candidate</option>
+        <option value="A">🌸 Candidate A</option>
+        <option value="B">⭐ Candidate B</option>
+        <option value="C">🌱 Candidate C</option>
+    </select>
+
+    <button onclick="vote()">SUBMIT VOTE</button>
+
+    <p id="message"></p>
+
+    <hr>
+
+    <h2>📊 Results</h2>
+
+    <div class="candidate">
+        🌸 Candidate A:
+        <b id="a">0</b> votes
+    </div>
+
+    <div class="candidate">
+        ⭐ Candidate B:
+        <b id="b">0</b> votes
+    </div>
+
+    <div class="candidate">
+        🌱 Candidate C:
+        <b id="c">0</b> votes
+    </div>
+
+    <h3>Total Votes: <span id="total">0</span></h3>
+
+</div>
+
+<script>
+
+let a = 0;
+let b = 0;
+let c = 0;
+
+function vote() {
+
+    let name = document.getElementById("name").value;
+    let candidate = document.getElementById("candidate").value;
+
+    if (name == "" || candidate == "") {
+        alert("Please enter name and select candidate");
+        return;
+    }
+
+    if (candidate == "A") {
+        a++;
+        document.getElementById("a").innerHTML = a;
+    }
+
+    if (candidate == "B") {
+        b++;
+        document.getElementById("b").innerHTML = b;
+    }
+
+    if (candidate == "C") {
+        c++;
+        document.getElementById("c").innerHTML = c;
+    }
+
+    document.getElementById("total").innerHTML = a + b + c;
+
+    document.getElementById("message").innerHTML =
+        "✅ Vote submitted successfully!";
+
+    document.getElementById("name").value = "";
+    document.getElementById("candidate").value = "";
+}
+
+</script>
+
+</body>
+</html>
+```
